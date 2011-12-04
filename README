@@ -1,5 +1,13 @@
 Visit https://www.facebook.com/pages/OnTime-Birthday-Post/227886563949063 for more information on this app.
 
-The project is just your regular Eclipse Android project and you should be able to open it in Eclipse and build the apk.
+See LICENSE for licensing information.
 
-See NOTICE for licensing information.
+BUILD INSTRUCTIONS
+
+Important: Every Facebook app needs to use an "APP_SECRET" to communicate with FB. Since ours is tied to the authors' accounts, we have removed it from source. You must supply your own in the file OnTimeBirthdayPost.java for the app to work.
+Similarly, you must supply a database and table name in the file BirthdaysDbAdapter.java for this to work.
+
+You can use the "Create project from existing source" option in eclipse, choose project type as Android and then select this folder.
+
+You will also need the official Facebook Android SDK from Facebook's developer website. See the official Android tutorial for more details. You will need to download the SDK and then link their library into this project.
+
