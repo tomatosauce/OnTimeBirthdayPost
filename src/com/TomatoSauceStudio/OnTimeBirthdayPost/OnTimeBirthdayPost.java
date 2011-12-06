@@ -441,6 +441,7 @@ public class OnTimeBirthdayPost extends ListActivity {
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 		    View resultView = super.getView(position, convertView, parent);
+		    resultView.setBackgroundColor(0x00000000);
 		    Cursor c = super.getCursor();
 
 		    /**
@@ -455,6 +456,7 @@ public class OnTimeBirthdayPost extends ListActivity {
 		    
 		    String flocation = c.getString(3);
 		    String fBdayf = c.getString(2);
+		    //Log.d("OnTimeBirthdayPost","Processing birthday: " + fBdayf + " at loc: " + flocation);
         	double flongt = 0;
         	boolean locationFailed = true;
         	if (!flocation.equals("Location Hidden") && !connectionError)
@@ -473,7 +475,7 @@ public class OnTimeBirthdayPost extends ListActivity {
 						     !((longdiff < -LONGITUDE_TOLERANCE) && (hour_of_day < 12))) ||
 						    (tomorrow.equals(fBdayf) && (longdiff > LONGITUDE_TOLERANCE) &&
                              (hour_of_day > 12))) {
-					    	//Log.d("OnTimeBirthdayPost","Bday: " + fBdayf);
+					    	//Log.d("OnTimeBirthdayPost","Highlighting birthday");
 					    	resultView.setBackgroundColor(HIGHLIGHT_COLOR);	
 					    }   	
 					    locationFailed = false;
@@ -487,9 +489,9 @@ public class OnTimeBirthdayPost extends ListActivity {
              * If location to timezone inference failed, highlight the birthday if
              * and only if it is today.
              */
-        	if (locationFailed && today.equals(fBdayf)) 
-        	{
-              	 resultView.setBackgroundColor(HIGHLIGHT_COLOR);
+        	if (locationFailed && today.equals(fBdayf)) {
+        	    //Log.d("OnTimeBirthdayPost","Highlighting bday at hidden loc");
+                resultView.setBackgroundColor(HIGHLIGHT_COLOR);
         	}
         	
 		    return resultView;
